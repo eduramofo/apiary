@@ -26,6 +26,10 @@ The system is composed of four main submodules, organized by the "Hive" metaphor
 # To clone the repository including all submodules
 git clone --recurse-submodules https://github.com/eduramofo/apiary.git
 
+# Set the submodules in the main branch
+cd ./{submodules}
+git switch main
+
 # Updates the Apiary repository and sets all 
 # submodules to the stable versions currently 
 # pinned in this project. Use this to ensure 
