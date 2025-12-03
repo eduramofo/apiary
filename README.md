@@ -24,7 +24,7 @@ The system is composed of four main submodules, organized by the "Hive" metaphor
 
 ```bash
 # To clone the repository including all submodules
-git clone --recurse-submodules https://github.com/eduramofo/apiary.git
+git clone --recurse-submodules git@github.com:eduramofo/apiary.git
 
 # Set the submodules in the main branch
 cd ./{submodules}
