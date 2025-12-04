@@ -31,7 +31,7 @@ git clone --recurse-submodules git@github.com:eduramofo/flux.git
 git pull origin main
 git submodule update --remote --merge
 # Config alias
-git config --global alias.upall '!if [ -n "$(git status --porcelain)" ]; then echo "🛑 STOP! You have unsaved changes (pending commit or stash). Command cancelled."; exit 1; else echo "✅ Clean! Updating Flux..." && git pull origin main && git submodule update --remote --merge; fi'
+git config --global alias.upall '!if [ -n "$(git status --porcelain)" ]; then echo "🛑 STOP! You have unsaved changes (pending commit or stash). Command cancelled."; exit 1; else echo "✅ Clean! Updating Flux (Root)..." && git pull origin main && echo "🔄 Syncing submodule..." && git submodule update --remote --merge --jobs 4; fi'
 # Update all
 git upall
 
