@@ -1,22 +1,22 @@
-# Apiary 🐝
+# Flux 🌊
 
-**Apiary** is a modular ecosystem for algorithmic trading, orchestrating data collection, analysis, and execution.
+**Flux** is a high-performance algorithmic trading ecosystem, designed to orchestrate data ingestion, market analysis, and trade execution.
 
 ## 📂 Architecture
 
-The system is composed of four main submodules, organized by the "Hive" metaphor:
+The system is modular, ensuring clear separation of concerns:
 
-- **`nectar/`** (Data Source)
-  Responsibility: Market data ingestion and candle generation.
+- **`nectar/`** (Ingestion)
+  The data sourcing engine. Connects to exchanges and providers to generate normalized OHLCV candles.
 
-- **`nectar-client/`** (Connector)
-  Responsibility: Interface library for consuming market data.
+- **`nectar-client/`** (Interface)
+  Standardized Python client for consuming market data across the ecosystem.
 
 - **`spectra/`** (The Brain)
-  Responsibility: Market analysis, pattern recognition, and strategy core.
+  The intelligence core. Processes the *Flux* of data to identify patterns, volatility, and trading signals.
 
 - **`hive/`** (The Workers)
-  Responsibility: Execution bots and order management.
+  The bot cluster. Consumes signals from Spectra and manages orders and positions in real-time.
 
 ---
 
@@ -24,7 +24,7 @@ The system is composed of four main submodules, organized by the "Hive" metaphor
 
 ```bash
 # To clone the repository including all submodules
-git clone --recurse-submodules git@github.com:eduramofo/apiary.git
+git clone --recurse-submodules git@github.com:eduramofo/flux.git
 
 # Set the submodules in the main branch
 cd ./{submodules}
