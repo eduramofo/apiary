@@ -26,22 +26,17 @@ The system is modular, ensuring clear separation of concerns:
 # To clone the repository including all submodules
 git clone --recurse-submodules git@github.com:eduramofo/flux.git
 
-# Set the submodules in the main branch
-cd ./{submodules}
-git switch main
-
-# Updates the Apiary repository and sets all 
+# Updates the repository and sets all
 # submodules to the stable versions currently 
-# pinned in this project. Use this to ensure 
-# your local environment matches the team's stable state.
-git pull --recurse-submodules
+git pull origin main
+git submodule update --remote --merge
+# Config alias
+git config --global alias.upall '!if [ -n "$(git status --porcelain)" ]; then echo "🛑 STOP! You have unsaved changes (pending commit or stash). Command cancelled."; exit 1; else echo "✅ Clean! Updating Flux..." && git pull origin main && git submodule update --remote --merge; fi'
+# Update all
+git upall
 
 # Forces submodules to fetch the absolute latest
 # code from their remote branches (e.g., main),
 # ignoring the pinned versions in Apiary.
 git submodule update --remote
-
-# If you have already cloned the repository 
-# without the flag, run this to fetch the submodules
-git submodule update --init --recursive
 ```
